@@ -58,6 +58,7 @@ function jogoDeAdivinhacao() {
     if (pontuacaoAtual === "Você tem 0 pontos") {
         alert("Perdeu! Você acabou com todoas suas tentativas :(")
         reiniciarJogo();
+        return;
     }
  }
 
@@ -66,10 +67,14 @@ function reiniciarJogo() {
     const vaiReiniciar = confirm("Deseja jogar novamente?");
 
     if(vaiReiniciar){
+    palpitesAnteriores = [];
+    tentativas = 0; //reiniciando o número de tentativas
     atualizarPalpitesFalhos("");
     atualizarPontuacao(100);
     atualizarFeedback("");
     limparPalpiteDigitado();
+
+    numeroAleatorio = Math.floor(Math.random() * 100) + 1; //Gerando um novo número aleatório
         
     }
 }
